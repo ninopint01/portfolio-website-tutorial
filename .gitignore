@@ -1,0 +1,5 @@
+.eslintrc.js
+.cache
+.git
+/src/dist
+/node_modules
