@@ -1,5 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* account for any border and padding in the values you specify for an element's width and height */
+    list-style: none;
+}
+
+:root {
+    --color-primary: #1e272e;
+    --color-secondary: #ffa801;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray-0: #f8f8f8;
+    --color-gray-1: #dbe1e8;
+    --color-gray-2: #b2becd;
+    --color-gray-3: #6c7983;
+    --color-gray-4: #454e56;
+    --color-gray-5: #2a2e35;
+    --color-gray-6: #12181b;
+    --br-sm-2: 14px;
+    --box-shadow-1: 0 3px 15px rgba(0,0,0,0.3);
+    --transition-1: all 0.4 ease-in-out;
+}
+
 body {
-    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--color-primary);
+    // “root em”, a unit of measurement that represents the font size of the root element. This means that 1rem equals the font size of the html element
+    font-size: 1.1rem;
+    color: var(--color-white);
+    transition: all 0.4s ease-in-out;
+}
+
+a {
+    // The element generates a block element box that will be flowed with surrounding content as if it were a single inline box
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+header {
     height: 100vh;
-    background-color: lightgray;
+    color: var(--color-white);
+    // Content is clipped if necessary to fit the padding box
+    overflow: hidden;
+}
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    // The element is removed from the normal document flow, and no space is created for the element in the page layout
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 3rem 18rem;
+}
+
+.section {
+    transform: translateY(-100%) scale(0);
+    transition: var(--transition-1);
+    background-color: var(--color-primary);
+}
+
+.sec1 {
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: lightblue;
+}
+
+.sec2 {
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: lightgreen;
+}
+
+.sec3 {
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: lightcoral;
+}
+
+.sec4 {
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: lightpink;
+}
+
+.sec5 {
+    display: none;
+    transform: translateY(0) scale(1);
+    background-color: lightseagreen;
+}
+
+.active {
+    display: block;
+    animation: scaleAnimation 1s ease-in-out;
+    @keyframes scaleAnimation {
+        0% {
+            transform: translateY(-100%) scaleY(0);
+        }
+        100% {
+            transform: translateY(0) scaleY(1);
+        }
+    }
+}
+
+
+// NAVIGATION
+.controls {
+    position: fixed;
+    z-index: 99;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .active-btn {
+        background-color: var(--color-secondary) !important;
+        transition: var(--transition-1);
+        i {
+            color: var(--color-white) !important;
+        }
+    }
+    
+    .control {
+        padding: 1rem;
+        cursor: pointer;
+        background-color: var(--color-gray-4);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.7rem 0;
+        box-shadow: var(--box-shadow-1);
+
+        i {
+            font-size: 1.2rem;
+            color: var(--color-gray-2);
+            pointer-events: none;
+        }
+    }
 }
