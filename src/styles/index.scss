@@ -19,7 +19,7 @@
     --color-gray-6: #12181b;
     --br-sm-2: 14px;
     --box-shadow-1: 0 3px 15px rgba(0,0,0,0.3);
-    --transition-1: all 0.4 ease-in-out;
+    --transition-1: all 0.4s ease-in-out;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
     // “root em”, a unit of measurement that represents the font size of the root element. This means that 1rem equals the font size of the html element
     font-size: 1.1rem;
     color: var(--color-white);
-    transition: all 0.4s ease-in-out;
+    transition: var(--transition-1);
 }
 
 a {
@@ -65,31 +65,26 @@ section {
 .sec1 {
     display: none;
     transform: translateY(0) scale(1);
-    background-color: lightblue;
 }
 
 .sec2 {
     display: none;
     transform: translateY(0) scale(1);
-    background-color: lightgreen;
 }
 
 .sec3 {
     display: none;
     transform: translateY(0) scale(1);
-    background-color: lightcoral;
 }
 
 .sec4 {
     display: none;
     transform: translateY(0) scale(1);
-    background-color: lightpink;
 }
 
 .sec5 {
     display: none;
     transform: translateY(0) scale(1);
-    background-color: lightseagreen;
 }
 
 .active {
@@ -143,6 +138,123 @@ section {
             font-size: 1.2rem;
             color: var(--color-gray-2);
             pointer-events: none;
+        }
+    }
+}
+
+// Header Content
+.header-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+
+    .left-header {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .h-shape {
+            transition: var(--transition-1);
+            width: 65%;
+            height: 100%;
+            background-color: var(--color-secondary);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+        }
+
+        .image {
+            border-radius: var(--br-sm-2);
+            height: 90%;
+            width: 68%;
+            margin-left: 4rem;
+            // background-color: var(--color-black);
+
+            img {
+                border-radius: var(--br-sm-2);
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: var(--transition-1);
+                filter: grayscale(100%);
+
+                &:hover {
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+
+    .right-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 18rem;
+
+        .name {
+            font-size: 3rem;
+            
+            span {
+                color: var(--color-secondary);
+            }
+        }
+
+        p {
+            margin: 1.5rem 0;
+            line-height: 2rem;
+        }
+    }
+}
+
+
+// Independent components
+.btn-container {
+    display: flex;
+    align-self: flex-start;
+}
+
+.main-btn {
+    color: inherit;
+    font-weight: 600;
+    border: 1px solid var(--color-secondary);
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    overflow: hidden;
+
+    .btn-text {
+        padding: 0 2rem;
+    }
+
+    .btn-icon {
+        background-color: var(--color-secondary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        padding: 1rem;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
+        transition: var(--transition-1);
+        z-index: -1;
+    }
+
+    &:hover {
+        &::before {
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-secondary);
+            transform: translateX(0);
         }
     }
 }
