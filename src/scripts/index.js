@@ -1,5 +1,5 @@
 const sections = document.querySelectorAll(".section");
-const sectBtns = document.querySelectorAll(".controls");
+// const sectBtns = document.querySelectorAll(".controls");
 const sectBtn = document.querySelectorAll(".control");
 const allSections = document.querySelector(".main-content");
 
@@ -19,12 +19,13 @@ function pageTransitions() {
 
   allSections.addEventListener("click", (event) => {
     const id = event.target.dataset.id;
+    console.log(id);
     if (id) {
       // Remove selected
-      sectBtns.forEach((btn) => {
-        btn.classList.remove("active");
-      });
-      event.target.classList.add("active");
+      // sectBtns.forEach((btn) => {
+      //   btn.classList.remove("active");
+      // });
+      // event.target.classList.add("active");
 
       // Hide other sections
       sections.forEach((section) => {
