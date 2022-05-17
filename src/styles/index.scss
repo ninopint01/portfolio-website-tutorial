@@ -23,6 +23,20 @@
     --transition-1: all 0.4s ease-in-out;
 }
 
+.light-mode {
+    --color-primary: #fff;
+    --color-secondary: #ffa801;
+    --color-white: #454e56;
+    --color-black: #000;
+    --color-gray-0: #f8f8f8;
+    --color-gray-1: #6c7983;
+    --color-gray-2: #6c7983;
+    --color-gray-3: #6c7983;
+    --color-gray-4: #454e56;
+    --color-gray-5: #f8f8f8;
+    --color-gray-6: #12181b;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--color-primary);
@@ -142,6 +156,36 @@ section {
         }
     }
 }
+
+
+.theme-btn {
+    top: 5%;
+    right: 3%;
+    padding: 1rem;
+    cursor: pointer;
+    position: fixed;
+    background-color: var(--color-gray-4);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    transition: all 0.1s ease-in-out;
+
+    &:active {
+        transform: translateY(-5px);
+    }
+
+    i {
+        font-size: 1.4rem;
+        color: var(--color-gray-2);
+        pointer-events: none;
+    }
+}
+
+
 
 // Header Content
 .header-content {
